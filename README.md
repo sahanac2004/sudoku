@@ -69,7 +69,9 @@ How to Run
 Install XAMPP server on your local machine.
 Start the Apache and MySQL services.
 Create a new database and import the SQL file provided in the repository.
-Run the PHP files using a web browser.
+with 3 team members we have done this project. Have taken the sudoku game from other 
+Run the PHP files using a web browser. 
 Note: The SQL file includes the data for the admin table.
 Conclusion
 The Sudoku Management System is a complete solution for managing Sudoku games and players. The system is built using the latest web technologies and provides a user-friendly interface for players to play and manage their games. The system also provides a robust backend for administrators to manage the players and their subscriptions.
+https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbWZ4aWJOazZjTHFKOUdPMUVZTE1Hb2Z0R0ZYZ3xBQ3Jtc0ttODhWVEUtQzlYZ09jZWstZXYxa2IzbUhwVmhwMUxtNUZqQUY2dmplR3JIS0RhMVY3TUsyblFuNmdsVm4tQmxGcHh4Rm1GN0tkT1Ezc2NzUVVySFNGVGw3MWcxcmJJZ0RvS1VKSUNNSzV0cnZtajkwRQ&q=https%3A%2F%2Fgithub.com%2Ftrananhtuat%2Fjavascript-sudoku&v=xpsm3tOLTVE for game  code. With total of 3 team members.
