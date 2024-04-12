@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Responsive Page</title>
+  <style>
+    .faq-container {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    .category {
+      background-color:powderblue;
+      padding: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .questions-container {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .question {
+      background-color: #ddd;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .answer {
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      display: none;
+    }
+
+    .go-back {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .go-back button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .go-back button:hover {
+      background-color: #333;
+    }
+    body {
+    background: linear-gradient(-45deg, #fcb8a3, #f8a4c4, #b08af5, #a3f3e0);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.category').click(function() {
+        $(this).next('.questions-container').slideToggle();
+      });
+
+      $('.question').click(function() {
+        $(this).next('.answer').slideToggle();
+      });
+
+      // Hide all answers initially
+      $('.answer').hide();
+    });
+  </script>
+</head>
+<body>
+    <div class="d-flex flex-column justify-content-center w-100 h-100"></div>
+  <div class="faq-container">
+    <!-- Category 1 -->
+    <h2 class="category">Account Management</h2>
+    <div class="questions-container">
+      <h3 class="question">How do I register for a new account?</h3>
+      <div class="answer">To register for a new account, click on the "Register" button on the right corner of the page, fill out the required fields, and submit the form.</div>
+      <h3 class="question">How do I log in to my account?</h3>
+      <div class="answer">To log in to your account, click on the "Log In" button on the right corner of the page, enter your email address and password, and click the "Log In" button.</div>
+      <h3 class="question">How do I delete my account?</h3>
+      <div class="answer">To delete your account, contact customer support with your request. They will guide you through the account deletion process.</div>
+    </div>
+  </div>
+  
+  <div class="faq-container">
+    <!-- Category 2 -->
+    <h2 class="category">Sudoku Gameplay</h2>
+    <div class="questions-container">
+      <h3 class="question">How do I start a new Sudoku game?</h3>
+      <div class="answer">To start a new Sudoku game, go to the game section and click on the "New Game" button. Select the difficulty level and click "Start Game".</div>
+      <h3 class="question">Can I undo my moves in a Sudoku game?</h3>
+      <div class="answer">Yes, you can undo your moves by clicking on the "Undo" button. </div>
+      <h3 class="question">Is there a time limit for solving Sudoku puzzles?</h3>
+      <div class="answer">No, there is no time limit for solving Sudoku puzzles. Take your time to solve each puzzle at your own pace.</div>
+      <h3 class="question">Can I play Sudoku on my mobile device?</h3>
+      <div class="answer">No, you can't play Sudoku on your mobile device. Our website is not optimized for mobile browsers.</div>
+      <h3 class="question">How do I check if my Sudoku solution is correct?</h3>
+      <div class="answer">Incorrect cells will be highlighted.</div>
+    </div>
+  </div>
+  
+  <div class="faq-container">
+    <!-- Category 3 -->
+    <h2 class="category">Puzzle Creation</h2>
+    <div class="questions-container">
+      <h3 class="question">Can I create my own Sudoku puzzles?</h3>
+      <div class="answer">No, you can't create your own Sudoku puzzles using the puzzle creation tool. Simply follow the instructions provided.</div>
+      <h3 class="question">How do I save my custom Sudoku puzzles?</h3>
+      <div class="answer">No, you can't save your custom sudoku puzzle.</div>
+      <h3 class="question">Can I share my custom Sudoku puzzles with others?</h3>
+      <div class="answer">No, you can't share sudoku puzzles.</div>
+    </div>
+  </div>
+  
+  <div class="faq-container">
+    <!-- Category 4 -->
+    <h2 class="category">Technical Support</h2>
+    <div class="questions-container">
+      <h3 class="question">Is there a user manual available?</h3>
+      <div class="answer">Yes, you can access the user manual by clicking on the "How to play".</div>
+      <h3 class="question">Do you offer troubleshooting guides?</h3>
+      <div class="answer">No, we don't provide troubleshooting guides.</div>
+      <h3 class="question">Can I request a feature?</h3>
+      <div class="answer">Yes, you can request a feature.</div>
+    </div>
+  </div>
+  
+  <div class="faq-container">
+    <!-- Category 5 -->
+    <h2 class="category">Account Billing</h2>
+    <div class="questions-container">
+      <h3 class="question">How do I update my billing information?</h3>
+      <div class="answer">No, you can't update billing information.</div>
+      <h3 class="question">How do I cancel my subscription?</h3>
+      <div class="answer">After the end of the subscription period, you can cancel your subscription.</div>
+      <h3 class="question">Can I get a refund for my subscription?</h3>
+      <div class="answer">No refund will be provided for subscriptions.</div>
+      <!--<h3 class="question"> How do I view my billing history?</h3>
+      <div class="answer"> You can view your billing history in the account settings section under "Billing History".</div>-->
+      <h3 class="question">Do you offer different subscription plans?</h3>
+      <div class="answer">Yes, we offer different subscription plans.</div>
+    </div>
+  </div>
+
+  <div class="go-back">
+    <button onclick="window.history.back()">Go Back</button>
+  </div>
+  
+</body>
+</html>

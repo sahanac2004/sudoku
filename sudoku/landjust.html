@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Management System</title>
+    <style>body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    header {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        padding: 10px 0;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        text-align: center;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
+    .landing {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 2rem;
+        color: #fff;
+    }
+    
+    .sudoku-info {
+        text-align: center;
+    }
+    
+    .slider {
+        margin: 20px;
+        height: 200px;
+        overflow: hidden;
+    }
+    
+    .slide {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    
+    .developers-slider {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .developer {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    
+    .admin-login,
+    .player-login {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .admin-info,
+    .player-info {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    
+    .help-section,
+    .contact-section {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    /* Add more CSS styles for the different sections as needed */</style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#help">HELP</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="landing">
+        <div class="sudoku-info">
+            <img src="sudoku-game-photo.jpg" alt="Sudoku Game">
+            <p>Experience the challenge and fun of Sudoku!</p>
+            <p>Test your logic and problem-solving skills.</p>
+        </div>
+
+        <div class="slider">
+            <div class="slide">
+                <h2>Feature 1</h2>
+                <p>Description of feature 1.</p>
+            </div>
+            <div class="slide">
+                <h2>Feature 2</h2>
+                <p>Description of feature 2.</p>
+            </div>
+            <div class="slide">
+                <h2>Feature 3</h2>
+                <p>Description of feature 3.</p>
+            </div>
+        </div>
+
+        <div class="developers-slider">
+            <div class="developer">
+                <img src="developer1-photo.jpg" alt="Developer 1">
+                <p>Developer 1's name and role.</p>
+            </div>
+            <div class="developer">
+                <img src="developer2-photo.jpg" alt="Developer 2">
+                <p>Developer 2's name and role.</p>
+            </div>
+            <div class="developer">
+                <img src="developer3-photo.jpg" alt="Developer 3">
+                <p>Developer 3's name and role.</p>
+            </div>
+        </div>
+
+        <div class="admin-login">
+            <div class="admin-info">
+                <img src="admin-photo.jpg" alt="Admin Photo">
+                <p>About the services admins can provide.</p>
+            </div>
+            <button>Admin Login</button>
+        </div>
+
+        <div class="player-login">
+            <div class="player-info">
+                <img src="player-photo.jpg" alt="Player Photo">
+                <p>About the services provided to players.</p>
+            </div>
+            <button>Player Login</button>
+        </div>
+
+        <div id="help" class="help-section">
+            <!-- Help questions and answers -->
+        </div>
+
+        <div id="contact" class="contact-section">
+            <!-- Contact information -->
+        </div>
+    </div>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <script>let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("slide");
+          let dots = document.getElementsByClassName("dot");
+        
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+        
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }</script>
+</body>
+
+</html>

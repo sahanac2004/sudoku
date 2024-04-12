@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Form</title>
+    <style>
+        /* CSS styles remain the same */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Subscription Form</h1>
+        <form id="subscription-form" action="handle_subscription.php" method="post">
+            <label for="player_name">Player Name:</label>
+            <input type="text" id="player_name" name="player_name" required>
+            <label for="subc_type">Subscription Type:</label>
+            <select id="subc_type" name="subc_type" required onchange="updateSubscriptionDetails()">
+                <option value="free">Free</option>
+                <option value="premium">Premium</option>
+            </select>
+            <div id="premiumDuration" style="display: none;">
+                <label for="duration">Select Duration:</label>
+                <select id="duration" name="duration">
+                    <option value="3">3 months - Rs. 499</option>
+                    <option value="6">6 months - Rs. 899</option>
+                    <option value="12">1 year - Rs. 1199</option>
+                </select>
+            </div>
+            <label for="subc_id">Subscription ID:</label>
+            <input type="text" id="subc_id" name="subc_id" readonly>
+            <input type="hidden" id="amount" name="amount">
+            <input type="hidden" id="game_type" name="game_type">
+            <input type="hidden" id="end_date" name="end_date">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function updateSubscriptionDetails() {
+            var subcType = document.getElementById("subc_type").value;
+            var durationSelect = document.getElementById("duration");
+            var subcId = Math.floor(Math.random() * 900000) + 100000;
+
+            if (subcType === 'premium') {
+                document.getElementById("premiumDuration").style.display = "block";
+                durationSelect.addEventListener('change', function () {
+                    var selectedDuration = parseInt(this.value);
+                    if (selectedDuration === 3) {
+                        document.getElementById("amount").value = 499;
+                    } else if (selectedDuration === 6) {
+                        document.getElementById("amount").value = 899;
+                    } else if (selectedDuration === 12) {
+                        document.getElementById("amount").value = 1199;
+                    }
+                    document.getElementById("game_type").value = 'premium';
+
+                    var currentDate = new Date();
+                    var endDate = new Date(currentDate.setMonth(currentDate.getMonth() + selectedDuration));
+                    document.getElementById("end_date").value = endDate.toISOString().slice(0, 10);
+
+                    // Redirect to payment.html when Premium is selected
+                    window.location.href = "payment.html";
+                });
+            } else if(subcType === 'free')  {
+                document.getElementById("premiumDuration").style.display = "none";
+                document.getElementById("amount").value = 0;
+                document.getElementById("game_type").value = 'classic';
+                document.getElementById("end_date").value = '';
+            }
+
+            document.getElementById("subc_id").value = subcId;
+        }
+
+        window.onload = function() {
+            updateSubscriptionDetails();
+        };
+    </script>
+
+</body>
+</html>

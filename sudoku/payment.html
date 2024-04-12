@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Form</title>
+    <style>
+      
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3494e6, #ec6ead);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+           
+            background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+            /*background: linear-gradient(45deg, #ff9a9e, #fad0c4); */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+           /* background: linear-gradient(45deg, #fbc2eb, #a6c1ee);
+            border-radius: 10px;
+            animation: gradientAnimation 15s ease infinite;
+            background: linear-gradient(45deg, #fbc2eb, #a6c1ee); */
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+            
+        }
+
+       label {
+            display: block;
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],#pay_mode,#date_time,input[type="datetime-local" ],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+           width: calc(100% - 20px);
+           padding:10px; 
+           margin-top :20px; 
+           background-color:#333; 
+           color:#fff; 
+           border:none; 
+           cursor:pointer; 
+           border-radius :5px; 
+         }
+
+         button[type="submit"]:hover { 
+             background-color:#444; 
+         }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Form</h1>
+        <form id="paymentForm" action="insert_payment.php" method="post">
+            <label for="player_name">Player Name:</label><br>
+            <input type="text" id="player_name" name="player_name"><br>
+            <label for="subc_id">Subscription ID:</label><br>
+            <input type="text" id="subc_id" name="subc_id"><br>
+            <label for="subc_id">Payment ID:</label>
+            <input type="text" id="payment_id" name="payment_id" readonly>
+            <label for="pay_mode">Payment Mode:</label><br>
+            <select id="pay_mode" name="pay_mode">
+              <option value="gpay">Google Pay</option>
+              <option value="phonepay">Phone Pay</option>
+              <option value="paytm">PayTM</option>
+            </select><br>
+            <label for="date_time">Date and Time:</label><br>
+            <input type="datetime-local" id="date_time" name="date_time"><br>
+            <button type="submit" value="Submit">Submit</button>
+          </form>
+    </div>
+    <script>
+        function updateSubscriptionDetails() {
+            
+            var payId = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById("payment_id").value = payId;
+            
+        }
+        // Call updateSubscriptionDetails when the page loads to set the initial subscription details
+        window.onload = function() {
+            updateSubscriptionDetails();
+        }
+    </script>
+</body>
+</html>

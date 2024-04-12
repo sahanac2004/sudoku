@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Question</title>
+    <style>
+        /*body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #444;
+        } */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3494e6, #ec6ead);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+           
+            background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+            /*background: linear-gradient(45deg, #ff9a9e, #fad0c4); */
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+           /* background: linear-gradient(45deg, #fbc2eb, #a6c1ee);
+            border-radius: 10px;
+            animation: gradientAnimation 15s ease infinite;
+            background: linear-gradient(45deg, #fbc2eb, #a6c1ee); */
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+            
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+           width: calc(100% - 20px);
+           padding:10px; 
+           margin-top :20px; 
+           background-color:#333; 
+           color:#fff; 
+           border:none; 
+           cursor:pointer; 
+           border-radius :5px; 
+         }
+
+         button[type="submit"]:hover { 
+             background-color:#444; 
+         }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Submit Your Question</h1>
+    <form action="submit_question.php" method="post">
+        <label for="player_name">Player Name:</label><br>
+        <input type="text" id="player_name" name="player_name"><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        
+        <label for="question">Question:</label><br>
+        <textarea id="question" name="question" rows="4"></textarea><br>
+        
+        <button type="submit">Submit Question</button>
+    </form>
+</div>
+</body>
+</html>

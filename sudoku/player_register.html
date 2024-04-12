@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        form {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+        
+        input[type="text"], input[type="password"] , input[type="email"]{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #444;
+        }
+    </style>
+    <script>
+        function validatePassword() {
+            var password = document.getElementById('password').value;
+            if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(password)) {
+                alert('Password must be at least 8 characters long and contain at least one uppercase, one lowercase, and one digit.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body><div class="container">
+    <h1>Player Registration</h1>
+    <form action="player_register.php" method="post" onsubmit="return validatePassword();">
+        <label for="player_name">Player Name:</label>
+        <input type="text" id="player_name" name="player_name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Register</button>
+    </form>
+</div> 
+  
+<script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        var playerName = document.getElementById('player_name').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+    
+        if (playerName === '' || email === '' || password === '') {
+            alert('Please fill in all fields.');
+            return;
+        }
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'player_register.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                if (xhr.responseText === 'Player already exists. Please choose a different name.') {
+                    alert(xhr.responseText);
+                    window.location.href = 'player_register.html';
+                } else if (xhr.responseText === 'Player registered successfully. Welcome to the game!') {
+                    alert(xhr.responseText);
+                    window.location.href = 'welcome_player.php?player_name=' + playerName;
+                } else {
+                    alert('An error occurred. Please try again later.');
+                }
+            } else {
+                alert('An error occurred. Please try again later.');
+            }
+        };
+        xhr.send('player_name=' + playerName + '&email=' + email + '&password=' + password);
+    });
+    
+</script>
+</body>
+</html>
+
+

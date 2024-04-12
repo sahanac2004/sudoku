@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover,
+        button.logout:hover {
+            background-color: #444;
+        }
+        
+        button.logout {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        #premiumDuration {
+            display: none; /* Initially hidden */
+        }
+        
+        #premiumDuration select {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Subscription Form</h1>
+        <form id="subscription-form" action="handle_subscription.php" method="post">
+            <label for="player_name">Player Name:</label>
+            <input type="text" id="player_name" name="player_name" required>
+            
+            <label for="subc_id">Subscription ID:</label>
+            <input type="text" id="subc_id" name="subc_id" readonly>
+            
+            <label for="subc_type">Subscription Type:</label>
+            <select id="subc_type" name="subc_type" required onchange="updateSubscriptionDetails()">
+                <option value="free">Free</option>
+                <option value="premium">Premium</option>
+            </select>
+            
+            <div id="premiumDuration" style="display: none;">
+                <label for="duration">Select Duration:</label>
+                <select id="duration" name="duration">
+                    <option value="3">3 months - Rs. 499</option>
+                    <option value="6">6 months - Rs. 899</option>
+                    <option value="12">1 year - Rs. 1199</option>
+                </select>
+            </div>
+
+            <input type="hidden" id="amount" name="amount">
+            <input type="hidden" id="game_type" name="game_type">
+            <input type="hidden" id="end_date" name="end_date">
+            
+            <button type="submit">Submit</button>
+        </form>
+
+        <form action="Landingpage.php">
+           <button class="logout">Home</button>
+       </form>
+
+       <!-- Go back functionality -->
+       <!-- This link will take the user back one step in the browsing history -->
+       <!-- You can also use the button with onclick event like in the script -->
+       <!-- But here is an alternative using an anchor tag -->
+       <!-- Note that this alone won't handle the subc_id generation and storage -->
+       <!-- It's just for navigation purposes -->
+       <!-- Adjust as needed based on your requirements -->
+       <!-- Make sure to handle subc_id generation and storage in your script accordingly -->
+
+       <!-- This link will take the user back one step in the browsing history -->
+       <!-- You can also use the button with onclick event like in the script -->
+       <!-- But here is an alternative using an anchor tag -->
+       <!-- Note that this alone won't handle the subc_id generation and storage -->
+       <!-- It's just for navigation purposes -->
+       <!-- Adjust as needed based on your requirements -->
+
+       <a href="#" onclick="history.go(-1)" class='logout'>Go Back</a>
+
+    </div>
+    <script> /*
+        function handleSubscriptionType() {
+            var subcType = document.getElementById('subcType').value;
+            var durationSelect = document.getElementById('duration');
+            var subcId = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById("subc_id").value = subcId;
+            if (subcType === 'free') {
+                durationSelect.disabled = true;
+                document.getElementById('amount').value = 0;
+                document.getElementById('end_date').value = '0000-00-00';
+                document.getElementById("game_type").value = "clasical"
+            } else if (subcType === 'premium') {
+                durationSelect.disabled = false;
+                durationSelect.selectedIndex = 0;
+                document.getElementById("game_type").value = "premium"
+            }
+        }
+
+        document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
+            const duration = document.getElementById('duration').value;
+
+            if (duration !== '0') {
+                const amountMapping = { '3': 499, '6': 899, '12': 1199 };
+                const currentDate = new Date();
+                const end_date = new Date(currentDate);
+                
+                end_date.setMonth(end_date.getMonth() + parseInt(duration));
+
+                document.getElementById('amount').value = amountMapping[duration];
+                document.getElementById('end_date').value = end_date.toISOString().split('T')[0];
+            } else {
+                event.preventDefault();
+                alert('Please select a valid duration for premium subscription.');
+            }
+        });
+        window.onload = function() {
+            updateSubscriptionDetails();
+        }; */
+    </script>
+    <script> 
+
+
+
+        
+        function updateSubscriptionDetails() {
+            var subcType = document.getElementById("subc_type").value;
+            var durationSelect = document.getElementById("duration");
+            var subcId = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById("subc_id").value = subcId;
+            if (subcType === 'premium') {
+                document.getElementById("premiumDuration").style.display = "block";
+                if (document.getElementById("premiumDuration").offsetParent !== null) {
+                    durationSelect.addEventListener('change', function () {
+                        var selectedDuration = parseInt(this.value);
+                        if (selectedDuration === 3) {
+                            document.getElementById("amount").value = 499;
+                            var endDate = new Date();
+                            endDate.setMonth(endDate.getMonth() + 3);
+                            document.getElementById("end_date").value = endDate.toISOString().slice(0, 10);
+                        } else if (selectedDuration === 6) {
+                            document.getElementById("amount").value = 899;
+                            var endDate = new Date();
+                            endDate.setMonth(endDate.getMonth() + 6);
+                            document.getElementById("end_date").value = endDate.toISOString().slice(0, 10);
+                        } else if (selectedDuration === 12) {
+                            document.getElementById("amount").value = 1199;
+                            var endDate = new Date();
+                            endDate.setMonth(endDate.getMonth() + 12);
+                            document.getElementById("end_date").value = endDate.toISOString().slice(0, 10);
+                        }
+                        document.getElementById("game_type").value = 'compitation';
+                    });
+                }
+            } else {
+                document.getElementById("premiumDuration").style.display = "none";
+                document.getElementById("amount").value = 0;
+                document.getElementById("game_type").value = "clasical";
+                document.getElementById("end_date").value = '';
+            }
+        }
+            // Store generated subcId in the form field
+            
+      
+            if (subcType === 'premium') {
+                // window.location.replace("payment.html"); // Redirect to payment page
+                // Submit form for premium subscription
+                //document.getElementById("subscription-form").submit();
+            } else {
+                // Go back one step in browsing history for free subscription
+                //history.go(-1);
+            }
+        
+        window.onload = function() {
+            updateSubscriptionDetails();
+        };
+        // Initial call to update subscription details when page loads 
+    </script>
+    
+    
+</body>
+</html>
