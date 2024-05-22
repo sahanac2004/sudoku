@@ -504,7 +504,7 @@ body {
                 <div class="btn" id="btn-how">How to Play</div>
                 
                 <div class="btn " >
-                    <a href="Landingpage.php" >Home</a>
+                    <a href="index.html" >Home</a>
                 </div>
                 <div class="btn" onclick="goBack()"  >Goback</div>
                 <script>
