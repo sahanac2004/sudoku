@@ -496,7 +496,7 @@ body {
                 <div class="btn btn-blue" id="btn-play">New game</div>
                 <div class="btn" id="btn-how">How to Play</div>
                 <div class="btn " >
-                    <a href="Landingpage.php" >Home</a>
+                    <a href="index.html" >Home</a>
                 </div>
                 <div class="btn"  ><a href="subs_player.php"> Goback</a></div>
                 <script>
