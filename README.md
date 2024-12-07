@@ -1,145 +1,166 @@
+# *Sudoku Management System*
 
-## **Table of Contents**
+A web-based application to create, manage, and play Sudoku puzzles, catering to enthusiasts and administrators. It features puzzle generation, subscription-based access, leaderboard management, and user-query handling. Built with modern web technologies, the system emphasizes scalability, user experience, and efficient data management.
 
-- [**About the Project**](#about-the-project)
-- [**Features**](#features)
-- [**Technologies Used**](#technologies-used)
-- [**Database Design**](#database-design)
-- [**Setup Instructions**](#setup-instructions)
-- [**How to Use**](#how-to-use)
-- [**Snapshots**](#snapshots)
-- [**Future Enhancements**](#future-enhancements)
-- [**Contributors**](#contributors)
-- [**License**](#license)
+---
 
-## **About the Project**
+## *📑 Table of Contents*
 
-The **Sudoku Management System** is a web-based application designed to create, manage, and play Sudoku puzzles. It caters to both Sudoku enthusiasts and administrators by offering functionalities such as puzzle generation, subscription-based access, leaderboard management, and user-query handling. Developed using modern web technologies, this system emphasizes scalability, user experience, and efficient data management.
+- [About the Project](#about-the-project)  
+- [Features](#features)  
+  - [Player Features](#player-features)  
+  - [Admin Features](#admin-features)  
+- [Technologies Used](#technologies-used)  
+- [Database Design](#database-design)  
+- [Setup Instructions](#setup-instructions)  
+- [How to Use](#how-to-use)  
+  - [Player Flow](#player-flow)  
+  - [Admin Flow](#admin-flow)  
+- [Snapshots](#snapshots)  
+- [Future Enhancements](#future-enhancements)  
+- [Contributors](#contributors)  
+- [License](#license)  
 
-## **Features**
+---
 
-### **Player Features**
+## *🔍 About the Project*
 
-- **User  registration and secure login.**
-- **Sudoku puzzle generation** with three difficulty levels: **Easy, Medium, Hard.**
-- **Two game modes:**
-  - **Free Mode**: Play without time constraints.
-  - **Competition Mode**: Solve puzzles with a timer and rank on the leaderboard.
-- **Subscription plans** to unlock premium features like Competition Mode and advanced statistics.
-- **Ability to track progress, performance, and completion statistics.**
-- **Query submission** to ask game-related questions.
+The Sudoku Management System is a complete platform for Sudoku puzzle generation and management. It provides a seamless experience for players with various game modes and difficulty levels while offering powerful administrative tools for managing user queries, subscriptions, and leaderboards.
 
-### **Admin Features**
+---
 
-- **Manage player accounts** (view, search, delete).
-- **Respond to player queries** through a query-reply system.
-- **View subscription and payment details.**
-- **Manage game settings and user statistics.**
+## *✨ Features*
 
-## **Technologies Used**
+### *Player Features*  
 
-### **Front-End**
+- *User Registration and Login:* Secure registration and authentication system.  
+- *Game Modes:*  
+  - Free Mode: Unlimited play without time constraints.  
+  - Competition Mode: Timed games with leaderboard rankings.  
+- *Puzzle Difficulty Levels:* Easy, Medium, and Hard.  
+- *Progress Tracking:* Monitor performance and completion statistics.  
+- *Subscription Plans:* Unlock advanced features like detailed statistics and competition mode.  
+- *Query Submission:* Players can send queries related to the game.  
 
-- **HTML, CSS, JavaScript**
-- **Responsive design** for cross-device compatibility
+### *Admin Features*  
 
-### **Back-End**
+- *Player Management:* View, search, and delete player accounts.  
+- *Query Handling:* Respond to player queries via a query-reply system.  
+- *Subscription Tracking:* Manage subscription and payment details.  
+- *Leaderboard Management:* Monitor and rank player performances.  
 
-- **PHP** for server-side logic and database communication
+---
 
-### **Database**
+## *💻 Technologies Used*
 
-- **MySQL** for storing and managing data such as:
-  - **Player information**
-  - **Puzzle data**
-  - **Subscription and payment details**
-  - **Query and response records**
+### *Front-End*  
+- *HTML, **CSS, **JavaScript*  
+- Responsive design for cross-device compatibility  
 
-### **Development Tools**
+### *Back-End*  
+- *PHP*: For server-side logic and database interactions  
 
-- **XAMPP** for local development (includes Apache, PHP, MySQL)
-- **Visual Studio Code** as the code editor
+### *Database*  
+- *MySQL*: For data storage, including:  
+  - Player accounts  
+  - Puzzle data  
+  - Subscriptions and payments  
+  - Query records  
 
-## **Database Design**
+### *Development Tools*  
+- *XAMPP*: Includes Apache server, PHP, and MySQL  
+- *Visual Studio Code*: Code editor  
 
-The database comprises the following key tables:
+---
 
-- **Admin Table**: Stores admin login credentials.
-- **Player Table**: Maintains player details like name, email, and subscription status.
-- **Leaderboard Table**: Tracks player rankings and times for competition mode.
-- **Subscription Table**: Records subscription plans and types for players.
-- **Payment Table**: Logs payment details for subscriptions.
-- **Query Table**: Stores player-submitted questions and responses from the admin.
+## *📊 Database Design*
 
-## **Setup Instructions**
+Key tables include:  
 
-1. **Prerequisites**
-   - Install **XAMPP** to set up a local development environment.
-   - Install a code editor like **Visual Studio Code**.
+1. *Admin Table:* Stores admin credentials.  
+2. *Player Table:* Contains player details like name, email, and subscription status.  
+3. *Leaderboard Table:* Tracks rankings and times for competitive games.  
+4. *Subscription Table:* Records subscription plans and payment types.  
+5. *Payment Table:* Logs player payment history.  
+6. *Query Table:* Stores player-submitted queries and admin responses.  
 
-2. **Clone the Repository**
-   ```bash
-   git clone https://github.com/sahanac2004/sudoku.git
-## Configure Database
+---
 
-### 1. Start XAMPP and ensure that Apache and MySQL are running.
-### 2. Open phpMyAdmin (usually at http://localhost/phpmyadmin).
-### 3. Create a new database (e.g., sudoku_db).
-### 4. Import the provided SQL file (sudoku_db.sql) to set up the database structure and sample data.
+## *⚙ Setup Instructions*
 
-## Configure Backend
+### *1. Prerequisites*  
+- Install [XAMPP](https://www.apachefriends.org/index.html) for local development.  
+- Use a code editor like [Visual Studio Code](https://code.visualstudio.com/).  
 
-### 1. Open the project folder in your code editor.
-### 2. Navigate to the /config/ directory and update the database connection details in the db_config.php file:
-```bash
-cat <<EOL > db_config.php
+### *2. Clone the Repository*  
+bash
+git clone https://github.com/sahanac2004/sudoku.git
+cd sudoku
+
+
+### *3. Configure Database*  
+1. Start XAMPP and ensure Apache and MySQL are running.  
+2. Open phpMyAdmin at http://localhost/phpmyadmin.  
+3. Create a database (e.g., sudoku_db).  
+4. Import the provided sudoku_db.sql file to set up the database structure.  
+
+### *4. Configure Backend*  
+Update database connection details in the /config/db_config.php file:  
+php
 <?php
 $servername = "localhost";
-$username = "root"; # Default username for XAMPP
-$password = ""; # Leave empty for XAMPP
-$dbname = "sudoku_db"; # Your database name
+$username = "root"; // Default username for XAMPP
+$password = ""; // Leave empty for XAMPP
+$dbname = "sudoku_db"; // Your database name
 ?>
-```
-## Run the Application
-
-### 1. Place the project folder in the htdocs directory of your XAMPP installation.
-### 2. Open a browser and navigate to: http://localhost/sudoku-management-system/.
-
-## How to Use
-
-## Player Flow
-### 1. Register or log in to the system.
-### 2. Choose a subscription plan (if required) and make payments.
-### 3. Select a game mode:
-####   - Free Mode: Play without time limits.
-####   - Competition Mode: Play with a timer and compete on the leaderboard.
-### 4. Track your progress and check your ranking on the leaderboard.
-
-## Admin Flow
-### 1. Log in using admin credentials.
-### 2. View and manage player accounts:
-####    - Search for specific players by name.
-####    - Add or delete player records.
-### 3. Respond to player queries using the query-reply system.
-### 4. View subscription and payment information for players.
-
-## Snapshots
-
-### 1. Landing Page
-### 2. Player Dashboard
-### 3. Admin Panel
-
-## Future Enhancements
-
-### 1. AI-based Puzzle Generation: Implement AI algorithms to generate puzzles dynamically based on player skill levels.
-### 2. Mobile App: Create a mobile version of the system for iOS and Android.
-### 3. Multiplayer Mode: Introduce real-time multiplayer Sudoku competitions.
-### 4. Detailed Analytics: Provide players with advanced statistics and performance reports.
-
-## Contributors
-
-### - Chandana D C: [GitHub](https://github.com/chandanadc01)
-### - Sahana C: [GitHub](https://github.com/sahanac2004)
 
 
+### *5. Run the Application*  
+1. Place the project folder in the htdocs directory of your XAMPP installation.  
+2. Open a browser and navigate to:  
+   http://localhost/sudoku-management-system/
+
+---
+
+## *📖 How to Use*
+
+### *Player Flow*  
+1. Register or log in.  
+2. Choose a subscription plan (if required) and complete payment.  
+3. Select a game mode:  
+   - Free Mode: Play without limits.  
+   - Competition Mode: Play timed games and compete on leaderboards.  
+4. Track progress and rankings.  
+
+### *Admin Flow*  
+1. Log in using admin credentials.  
+2. Manage players: Search, view, or delete player records.  
+3. Respond to queries using the query-reply system.  
+4. Monitor subscriptions and payment details.
+
+---
+
+## *📸 Snapshots*
+
+1. *Landing Page*: Welcome screen with login and registration options.  
+2. *Player Dashboard*: View progress, select puzzles, and play.  
+3. *Admin Panel*: Manage users, subscriptions, and queries.  
+
+---
+
+## *🚀 Future Enhancements*
+
+1. *AI-Based Puzzle Generation:* Generate puzzles dynamically based on player skill.  
+2. *Mobile App:* Develop iOS and Android versions for mobile gaming.  
+3. *Multiplayer Mode:* Introduce real-time multiplayer Sudoku competitions.  
+4. *Advanced Analytics:* Provide detailed player performance reports and statistics.  
+
+---
+
+## *👥 Contributors*
+
+- *Chandana D C* - [GitHub](https://github.com/chandanadc01)  
+- *Sahana C* - [GitHub](https://github.com/sahanac2004)  
+
+---
 
