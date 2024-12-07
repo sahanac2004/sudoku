@@ -159,7 +159,7 @@ $dbname = "sudoku_db"; // Your database name
 
 ## *👥 Contributors*
 
-- *Chandana D C* - [GitHub](https://github.com/chandanadc01)  
+- *Chandana D C* - [GitHub](https://github.com/chandanadc03)  
 - *Sahana C* - [GitHub](https://github.com/sahanac2004)  
 
 ---
