@@ -118,7 +118,7 @@ $dbname = "sudoku_db"; // Your database name
 ### *5. Run the Application*  
 1. Place the project folder in the htdocs directory of your XAMPP installation.  
 2. Open a browser and navigate to:  
-   http://localhost/sudoku-management-system/
+   http://localhost/sudoku/
 
 ---
 
